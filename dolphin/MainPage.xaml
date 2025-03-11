@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="dolphin.MainPage">
+    <Grid>
+        <ScrollView >
+            <StackLayout Padding="10">
+                <SearchBar Placeholder="Поиск..." 
+                   TextChanged="OnSearchTextChanged"/>
+                <CollectionView ItemsSource="{Binding FilteredDolphins}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Padding="10" Margin="5" BorderColor="Gray" CornerRadius="10">
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <Image Source="{Binding Image}" WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
+                                    <StackLayout VerticalOptions="Center">
+                                        <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold"/>
+                                        <Label Text="{Binding Description}" FontSize="14" TextColor="Gray"/>
+                                    </StackLayout>
+                                    <Button Text="Удалить" 
+                                            Clicked="OnDeleteButtonClicked"
+                                            BindingContext="{Binding .}"
+                                            HorizontalOptions="End"
+                                            BackgroundColor="BlueViolet"/>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

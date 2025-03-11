@@ -1,0 +1,1 @@
+C:\MAUI\Dolphin\dolphin\dolphin.csproj;x64
